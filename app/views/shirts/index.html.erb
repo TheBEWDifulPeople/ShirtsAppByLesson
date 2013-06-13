@@ -1,6 +1,8 @@
 <h1>All the shirts!</h1>
-<p><%= notice %></p>
-<%= render 'search' %>
-<%= link_to "Add a new shirt!", new_shirt_path %>
-
-<%= render "list" %>
+<% @shirts.each do |shirt| %>
+  <section>
+    <header><%= shirt.name %></header>
+    <p><%= shirt.description %></p>
+    <%= image_tag shirt.image %>
+  </section>
+<% end %>

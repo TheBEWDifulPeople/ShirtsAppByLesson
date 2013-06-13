@@ -32,14 +32,4 @@ class ShirtTest < ActiveSupport::TestCase
     @shirt.image = "validimage.png"
     assert @shirt.valid?
   end
-
-  test "search queries based on description and name" do
-    assert @shirt.save
-    shirt = Shirt.search_for "My Shirt"
-    assert_equal 1, shirt.count
-    shirt = Shirt.search_for "shirt description"
-    assert_equal 1, shirt.count
-    shirt = Shirt.search_for "banana"
-    assert_equal 0, shirt.count
-  end
 end
